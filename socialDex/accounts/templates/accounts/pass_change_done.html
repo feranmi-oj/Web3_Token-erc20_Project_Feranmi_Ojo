@@ -1,0 +1,21 @@
+{% extends "app/base.html" %}
+{% load static%}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/login.css'%}">
+
+<div class="w3-container " style="padding:128px 16px" align="center">
+
+
+    <div class="wrapper fadeInDown" >
+        <div id="formContent">
+            <h2 class="active">Password change completed successfully!</h2>
+            <h2>Return to the profile by clicking here:</h2>
+            <a class="btn btn-dark" href="{%url 'accounts:profile' user.pk%}" style="margin: 10px;;">Take me back</a>
+            <div id="formFooter">
+
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

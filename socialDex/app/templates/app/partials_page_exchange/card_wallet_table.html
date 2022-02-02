@@ -1,0 +1,44 @@
+<!-- Wallet_Table -->
+<div class="card" id="table" style="background:#6495ED">
+    <div class=" card-content">
+        <div class="card-action center-align flow-text white-text">
+            <h4 class=" text:center color:white"><strong>Your Wallet</strong></h4>
+        </div>
+        <table class=" table table-dark " >
+            <thead>
+            <tr class="white-text flow-text">
+                <th>My Token Address</th>
+                <th>FeroToken available</th>
+                <th>Dollars available</th>
+
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>{{ profile_pocket.token_address}}</td>
+                <td>{{ profile_pocket.token_amount|floatformat:3 }} FTN</td>
+                <td>{{ profile_pocket.usd_amount|floatformat:2}}$</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- Messages -->
+{% for message in messages %}
+{% if 'success' in message.tags %}
+<div class="card green lighten-2 white-text">
+    {% elif 'error' in message.tags %}
+    <div class="card red lighten-2 white-text">
+        {% elif 'info' in message.tags %}
+        <div class="card blue lighten-2 white-text">
+            {% endif %}
+
+            <div class=" card-content center">
+                <h5 class="">{{ message }}</h5>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+

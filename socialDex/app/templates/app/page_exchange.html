@@ -1,0 +1,51 @@
+{% extends "app/base.html" %}
+{% load static%}
+
+
+{% block content %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" xmlns="http://www.w3.org/1999/html"/>
+
+    <br>
+    <br>
+    <br>
+    <style>
+    body {
+      background-position: center;
+      background-size: cover;
+      background-image: url("{% static '/img/img.png' %}");
+      min-height: 100%;}
+
+    .formOrder{
+    background-color: #0000FF;
+    }
+
+    </style>
+
+    <h2 class=" font-weight-bold border-bottom"style="color:#6495ED "><strong >PAGE FeroToken EXCHANGE </strong>   </h2>
+
+
+    <body>
+        {% block wallet_table %}
+        {% include "app/partials_page_exchange/card_wallet_table.html" %}
+        {% endblock %}
+
+        <!-- Card: Buy Order -->
+        {% block card_buy_sell %}
+        {% include "app/partials_page_exchange/card_buy_sell.html" %}
+        {% endblock %}
+
+
+        <!-- Order Tables -->
+        {% block card_order_tables %}
+        {% include "app/partials_page_exchange/card_order_tables.html" %}
+        {% endblock %}
+
+
+    </body>
+
+
+    <br>
+    <br>
+    <br>
+
+{%endblock%}

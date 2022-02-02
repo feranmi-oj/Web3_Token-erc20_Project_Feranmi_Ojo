@@ -1,0 +1,54 @@
+{% extends "app/base.html" %}
+{% load static%}
+{% block content %}
+    <br>
+    <br>
+    <br>
+    <link rel="stylesheet" href="{% static 'css/login.css'%}">
+
+
+
+    {% if form.errors %}
+    <p>Your username and password didn't match. Please try again.</p>
+    {% endif %}
+
+    {% if next %}
+    {% if user.is_authenticated %}
+    <p>Your account doesn't have access to this page. To proceed,
+        please login with an account that has access.</p>
+    {% else %}
+    <p>Please login to see this page.</p>
+    {% endif %}
+    {% endif %}
+    <div class="wrapper fadeInDown" >
+        <div id="formContent">
+            <!-- Tabs Titles -->
+            <h2 class="active"> Sign In </h2>
+
+
+            <!-- Login Form -->
+            <form  class="login-form"  method="post" action="{% url 'accounts:login' %}">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <input class="btn indigo" type="submit" value="Log In" style="margin: 10px;"/>
+                <input type="hidden" name="next" value="{{ request.GET.next }}"/>
+            </form>
+
+            <!-- Remind Passowrd -->
+            <div id="formFooter">
+                <a class="underlineHover" href="{% url 'accounts:register' %}">Sign Up</a>
+            </div>
+
+        </div>
+    </div>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+
+{%endblock%}
